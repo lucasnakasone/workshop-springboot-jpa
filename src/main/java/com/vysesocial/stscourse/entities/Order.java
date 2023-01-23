@@ -54,6 +54,14 @@ public class Order implements Serializable {
 		this.moment = moment;
 	}
 	
+	public Double getTotal() {
+		double sum = 0;
+		for (OrderItem o : items) {
+			sum += o.getSubTotal();
+		}
+		return sum;
+	}
+	
 	public OrderStatus getOrderStatus() {
 		return OrderStatus.valueOf(orderStatus);
 	}
